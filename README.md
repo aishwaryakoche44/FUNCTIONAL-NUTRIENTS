@@ -16,11 +16,20 @@ npm run dev
 ```
 Open the localhost URL shown by Vite.
 
+To start Vite with the `start` script:
+```bash
+npm run start
+```
+
 ## Production build
 ```bash
 npm run build
 npm run preview
 ```
+
+## Deploy to Vercel
+
+Import the Git repository into Vercel and use the project root as the Root Directory. Vercel detects Vite automatically; the build command is `npm run build` and the output directory is `dist`. Dependencies are installed from `package-lock.json`; do not commit `node_modules`.
 
 ## Homepage sections
 - Hero / brand introduction
