@@ -39,29 +39,23 @@ export default function App() {
   };
 
   return <div className="page">
-    <div className="announcement"><span>FUNCTIONAL NUTRIENTS</span><span>FUNCTIONAL FOOD · BEVERAGES · NUTRACEUTICALS <i>✳</i></span></div>
     <header className="header">
       <a href="#home" className="logo"><img src="/assets/functional-nutrients-logo.png" alt="Functional Nutrients"/></a>
-      <nav className={menuOpen?'nav nav-open':'nav'}>{nav.map(([label,href])=><a href={href} key={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}<a className="nav-button" href="#contact" onClick={()=>setMenuOpen(false)}>Start a conversation <ArrowUpRight size={15}/></a></nav>
+      <nav className={menuOpen?'nav nav-open':'nav'}>{nav.map(([label,href])=><a href={href} key={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}</nav>
       <button className="menu-button" aria-label="Toggle menu" onClick={()=>setMenuOpen(!menuOpen)}>{menuOpen?<X/>:<Menu/>}</button>
     </header>
 
     <main>
       <section id="home" className="hero">
         <div className="hero-copy">
-          <div className="eyebrow"><span></span> WE ARE A NUTRIENT TECHNOLOGY COMPANY</div>
           <h1>Functional<br/><em>Nutrients.</em></h1>
           <p className="hero-description">We formulate functional nutrients for functional food, functional beverages, and nutraceuticals, as per client needs.</p>
           <div className="hero-actions"><a className="primary-button" href="#ingredients">Functional Nutrients Portfolio <ArrowUpRight size={17}/></a><a className="quiet-link" href="#solutions">Consultancy Ecosystem <ArrowRight size={16}/></a></div>
-          <div className="hero-footnote"><span className="round-icon"><Sprout size={17}/></span><span>Farm-sourced raw materials. Advanced formulation technologies.</span></div>
         </div>
         <div className="hero-visual">
           <div className="visual-frame"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1500&q=90" alt="Fresh green botanical ingredients and leaves"/></div>
           <div className="visual-orbit orbit-a"></div><div className="visual-orbit orbit-b"></div>
-          <div className="seal"><span>FN</span><small>FORMULATED<br/>WITH PURPOSE</small></div>
-          <div className="visual-index"><span>01 — 04</span><span>FUNCTIONAL NUTRIENTS</span></div>
         </div>
-        <div className="hero-bottom"><span>FORMULATION</span><b></b><span>SCIENCE</span><b></b><span>APPLICATION</span><a href="#approach">SCROLL TO EXPLORE ↓</a></div>
       </section>
 
       <div className="marquee"><div>FUNCTIONAL FOOD <i>✳</i> FUNCTIONAL BEVERAGES <i>✳</i> NUTRACEUTICALS <i>✳</i> FUNCTIONAL FOOD <i>✳</i> FUNCTIONAL BEVERAGES <i>✳</i> NUTRACEUTICALS <i>✳</i></div></div>
@@ -90,13 +84,10 @@ export default function App() {
         <div className="section-label"><span>02 / FUNCTIONAL NUTRIENTS</span><span>FUNCTIONAL FOOD · BEVERAGES · NUTRACEUTICALS</span></div>
         <div className="ingredient-heading"><h2>Functional Nutrients<br/><em>Portfolio.</em></h2><p>Functional nutrients for functional food, functional beverages, and nutraceuticals.</p></div>
         <div className="portfolio-categories" aria-label="Product categories">{portfolioCategories.map(category=><a href={`#${category.id}`} key={category.id}>{category.label}<ArrowRight size={14}/></a>)}</div>
-        {portfolioCategories.map(category=><div className="portfolio-category" id={category.id} key={category.id}>
-          <h3>{category.label}</h3>
-          <div className="ingredient-grid">{featured.filter(product=>product.category===category.id).map(p=><article className="ingredient-card" key={p.code}>
-            <div className={`ingredient-art ${p.tint}`}><img src={p.image} alt={p.imageAlt} loading="lazy"/><div className="art-shade"></div><small>{p.n} / INGREDIENT</small><span>{p.type}</span></div>
-            <div className="ingredient-info"><small>{p.code}</small><h3>{p.name}</h3><p>{p.desc}</p><a href="#contact">Connect to know more <ArrowUpRight size={15}/></a></div>
-          </article>)}</div>
-        </div>)}
+        <div className="ingredient-grid">{featured.map((p,index)=><article className="ingredient-card" id={featured.findIndex(product=>product.category===p.category)===index?p.category:undefined} key={p.code}>
+          <div className={`ingredient-art ${p.tint}`}><img src={p.image} alt={p.imageAlt} loading="lazy"/><div className="art-shade"></div><small>{p.n} / INGREDIENT</small><span>{p.type}</span></div>
+          <div className="ingredient-info"><small>{p.code}</small><h3>{p.name}</h3><p>{p.desc}</p><a className="product-cta" href="#contact">{p.category==='proteins'?'Connect to know more':'Enquire about this product'} <ArrowUpRight size={15}/></a></div>
+        </article>)}</div>
       </section>
 
       <section id="solutions" className="solutions">
@@ -116,14 +107,14 @@ export default function App() {
           <form className="contact-form" onSubmit={submit}><div className="form-top"><span>PROJECT ENQUIRY</span><span>LET'S TALK ↗</span></div>
             <div className="field-row"><label>Company Name<input name="company" value={form.company} onChange={update} placeholder="Company name"/></label><label>Name<input required name="name" value={form.name} onChange={update} placeholder="Full name"/></label></div>
             <div className="field-row"><label>Email ID<input type="email" required name="email" value={form.email} onChange={update} placeholder="you@company.com"/></label><label>Contact Number<input type="tel" name="phone" value={form.phone} onChange={update} placeholder="Phone number"/></label></div>
-            <label>Interested in<select required name="interest" value={form.interest} onChange={update}><option value="">Choose an area</option><optgroup label="Functional Nutrients"><option>Functional Protein</option><option>Functional Fiber</option><option>Functional Lipid</option><option>Functional Sweetener</option></optgroup><optgroup label="Formulation Development"><option>Formulation Development — Functional Food</option><option>Formulation Development — Functional Beverage</option><option>Formulation Development — Nutraceutical</option></optgroup><optgroup label="Contract Manufacturing"><option>Contract Manufacturing — Functional Food</option><option>Contract Manufacturing — Functional Beverage</option><option>Contract Manufacturing — Nutraceutical</option></optgroup></select></label>
+            <label>Interested in<select required name="interest" value={form.interest} onChange={update}><option value="">Choose from the list</option><optgroup label="Functional Nutrients"><option>Functional Protein</option><option>Functional Fiber</option><option>Functional Lipid</option><option>Functional Sweetener</option></optgroup><optgroup label="Formulation Development"><option>Formulation Development — Functional Food</option><option>Formulation Development — Functional Beverage</option><option>Formulation Development — Nutraceutical</option></optgroup><optgroup label="Contract Manufacturing"><option>Contract Manufacturing — Functional Food</option><option>Contract Manufacturing — Functional Beverage</option><option>Contract Manufacturing — Nutraceutical</option></optgroup></select></label>
             <label>Any Additional Needs<textarea rows="3" name="message" value={form.message} onChange={update} placeholder="Share any additional needs..."/></label>
-            <button className="primary-button submit-button" type="submit">Send an enquiry <ArrowUpRight size={16}/></button><small className="form-note">This demo form prepares an email to our team. It does not store submissions.</small>
+            <button className="primary-button submit-button" type="submit">Send an enquiry <ArrowUpRight size={16}/></button>
           </form>
         </div>
       </section>
       {notice&&<div className="notice" role="status" aria-live="polite"><CheckCircle2 size={22}/><div><strong>Enquiry ready to send</strong><span>Your email app is opening with your message.</span></div></div>}
     </main>
-    <footer className="footer"><div className="footer-top"><div><img src="/assets/functional-nutrients-logo.png" alt="Functional Nutrients"/><p>We are a nutrient technology company.</p></div><div className="footer-links"><small>EXPLORE</small>{nav.map(([l,h])=><a href={h} key={h}>{l}</a>)}</div><div className="footer-links"><small>GET IN TOUCH</small><a href="mailto:functionalnutrients@gmail.com">functionalnutrients@gmail.com <ArrowUpRight size={13}/></a></div><div className="footer-monogram">FN<span>®</span></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} FUNCTIONAL NUTRIENTS</span><span>BRAND OWNED BY RXCO PVT. LTD.</span><a href="#home">BACK TO TOP ↑</a></div></footer>
+    <footer className="footer"><div className="footer-top"><div><img src="/assets/functional-nutrients-logo.png" alt="Functional Nutrients"/><p>We are a nutrient technology company.</p></div><div className="footer-links"><small>EXPLORE</small>{nav.map(([l,h])=><a href={h} key={h}>{l}</a>)}</div><div className="footer-links"><small>GET IN TOUCH</small><a href="mailto:functionalnutrients@gmail.com">functionalnutrients@gmail.com <ArrowUpRight size={13}/></a></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} FUNCTIONAL NUTRIENTS</span><span>BRAND OWNED BY RXCO PVT. LTD.</span><a href="#home">BACK TO TOP ↑</a></div></footer>
   </div>;
 }
