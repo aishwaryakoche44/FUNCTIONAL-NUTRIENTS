@@ -363,3 +363,88 @@ body{color:var(--brand-ink)}
 .ingredient-art img{object-position:center;filter:saturate(.68) contrast(.96)}
 .ingredient-art .art-shade{z-index:1;background:linear-gradient(180deg,#3b1a4a4d 0%,#77448a12 48%,#3b1a4a70 100%)}
 .ingredient-art small,.ingredient-art>span{z-index:2}
+.hero{display:flex;justify-content:center;align-items:center;min-height:clamp(500px,calc(100vh - 113px),720px);padding:72px 0}
+.hero-copy{width:100%;max-width:1000px;padding:0;text-align:center}
+.hero h1{margin:0 0 24px}
+.hero-description{max-width:720px;margin:0 auto}
+.hero-actions{justify-content:center;flex-wrap:wrap}
+.hero-actions .primary-button{background:#71358f;box-shadow:none}
+.hero-actions .primary-button:hover{background:#5e267b;box-shadow:none}
+.primary-button{background:#71358f;box-shadow:none}
+.primary-button:hover{background:#5e267b;box-shadow:none}
+.solutions .primary-button{background:#fff;box-shadow:none}
+.solutions .primary-button:hover{background:#f3eafa;box-shadow:none}
+.ingredient-info a.product-cta{background:#71358f;box-shadow:none}
+.ingredient-info a.product-cta:hover{background:#5e267b}
+.portfolio-categories a{background:#fff;box-shadow:none}
+.portfolio-categories a:hover{background:#71358f;color:#fff}
+.section-label,.founder-heading{font-size:14px;line-height:1.5}
+.pillars small{font-size:13px}
+@media(max-width:650px){
+  .hero{min-height:0;padding:72px 0}
+  .hero h1{font-size:clamp(44px,11vw,64px);letter-spacing:-2px;line-height:1.08}
+  .hero-description{font-size:16px}
+  .hero-actions{align-items:center;flex-direction:row}
+  .section-label,.founder-heading{font-size:12px}
+  .pillars small{font-size:12px}
+}
+.approach-grid>h2{text-align:center}
+.farm-formulation-visual{height:clamp(260px,38vw,460px);margin:0 0 62px;position:relative;overflow:hidden;background:#dce9d9}
+.farm-formulation-visual img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}
+.farm-formulation-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,39,25,.62),rgba(18,39,25,.04) 78%),linear-gradient(0deg,rgba(18,39,25,.3),transparent 48%)}
+.farm-formulation-visual figcaption{position:absolute;left:clamp(22px,5vw,64px);bottom:clamp(22px,5vw,48px);display:flex;flex-direction:column;gap:10px;color:#fff}
+.farm-formulation-visual figcaption span{font:10px 'DM Mono';letter-spacing:1.5px}
+.farm-formulation-visual figcaption strong{font:500 clamp(22px,3vw,38px)/1.2 'Manrope';letter-spacing:-.7px}
+@media(max-width:650px){.farm-formulation-visual{height:280px;margin-bottom:42px}.farm-formulation-visual figcaption span{font-size:9px}}
+.portfolio-categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:32px}
+.portfolio-categories a{width:100%;min-height:64px;justify-content:space-between;padding:14px 22px}
+.ingredient-grid{grid-template-columns:minmax(0,820px);justify-content:center;gap:28px}
+.ingredient-art{aspect-ratio:16/10}
+@media(max-width:650px){.portfolio-categories{gap:8px}.portfolio-categories a{min-height:58px;padding:12px}.ingredient-grid{grid-template-columns:minmax(0,1fr);gap:22px}}
+.solution-intro{max-width:920px;margin:0 auto;padding:48px 0 52px;text-align:center}
+.solution-intro h2{margin:0;font-size:clamp(43px,5vw,64px);letter-spacing:-1.6px;line-height:1.04}
+.solution-intro>p{max-width:850px;margin:22px auto 0;font-size:16px;line-height:1.8}
+.solution-intro .primary-button{display:inline-flex;margin-top:26px;padding:16px 20px;align-items:center;gap:14px;background:#6f3193;color:#fff}
+.solution-intro .primary-button:hover{background:#592579;color:#fff}
+.solutions .capability-row{display:flex;flex-direction:column;gap:24px;padding-top:24px;border-top:1px solid #dac6e5}
+.consultancy-services>span,.application-list>span{display:block;margin-bottom:16px;font:13px 'DM Mono';letter-spacing:1px;color:#78409a}
+.service-list{display:flex;flex-wrap:wrap;gap:12px}
+.service-list strong{padding:14px 18px;border:1px solid #dac6e5;border-radius:6px;background:#fff;color:#44334b;font-size:15px}
+.application-list{display:grid;gap:12px}
+.application-list>span{margin-bottom:0}
+.application-list p{margin:0;padding:14px 16px;border:1px solid #dac6e5;border-radius:6px;background:#fff;color:#44334b;font-size:14px;line-height:1.7}
+.application-list p b{color:#6f3193}
+@media(max-width:650px){.solution-intro{padding:36px 0 40px}.solution-intro h2{font-size:clamp(38px,10vw,48px)}.solution-intro>p{font-size:15px}.service-list{flex-direction:column}.service-list strong{font-size:14px}.application-list p{font-size:13px}}
+.contact-details{display:grid;gap:18px;margin-top:24px}
+.contact-details>div>span{display:block;color:#edc9ff;font:10px 'DM Mono';letter-spacing:1px;text-transform:uppercase}
+.contact-details .email-link{margin-top:8px;font-size:14px}
+.contact-details p{margin:8px 0 0;color:#fff;font-size:14px;line-height:1.7;overflow-wrap:anywhere}
+.contact-details p a{color:inherit}
+.contact-details p a:hover{color:#edc9ff}
+.contact-grid>div:first-child .ownership{margin-top:24px}
+.contact-form label{font-weight:700}
+.hero{isolation:isolate;position:relative}
+.hero::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:radial-gradient(circle at 16% 42%,transparent 0 112px,#7800cf12 113px 114px,transparent 115px 145px,#7800cf0a 146px 147px,transparent 148px),radial-gradient(circle at 84% 58%,transparent 0 158px,#7800cf10 159px 160px,transparent 161px 194px,#7800cf08 195px 196px,transparent 197px),radial-gradient(ellipse at 18% 45%,#ead8f570,transparent 52%),radial-gradient(ellipse at 82% 55%,#e9d8f77a,transparent 48%),#fcfaff;background-size:100% 100%,100% 100%,150% 150%,150% 150%,100% 100%;animation:hero-aura 22s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;z-index:-1;top:12%;left:12%;width:clamp(180px,30vw,420px);aspect-ratio:1;border:1px solid #7800cf12;border-radius:50%;background:radial-gradient(circle,#d8b8ec5c 0,rgba(216,184,236,.16) 36%,rgba(216,184,236,0) 70%);box-shadow:0 0 0 24px #7800cf08,0 0 0 48px #7800cf05;filter:blur(4px);pointer-events:none;animation:hero-glow-drift 16s ease-in-out infinite alternate}
+.hero-copy{position:relative;z-index:1}
+@keyframes hero-aura{0%{background-position:0% 40%}100%{background-position:100% 60%}}
+@keyframes hero-glow-drift{0%{transform:translate3d(-12px,8px,0) scale(.92)}100%{transform:translate3d(35px,-18px,0) scale(1.12)}}
+.founder-profile{animation:profile-card-enter .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:.12s}
+.founder-profile::before{display:none}
+.profile-header{display:flex;align-items:center;gap:15px;margin-bottom:20px}
+.profile-avatar{width:82px;height:82px;flex:none;padding:3px;border-radius:50%;background:conic-gradient(from 25deg,#f6a623,#e1306c,#8838c8,#f6a623);transition:transform .35s ease}
+.profile-avatar img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 36%;border:3px solid #fff;border-radius:50%}
+.profile-identity{display:grid;gap:5px;flex:1}
+.profile-identity>span{font-size:16px;font-weight:600;color:#32223a}
+.profile-identity>small{font:10px 'DM Mono';letter-spacing:1px;color:#785c89}
+.profile-header>svg{color:#8838c8}
+.founder-profile:hover .profile-avatar{transform:rotate(-7deg) scale(1.06)}
+.founder-profile:hover{transform:translateY(-4px)}
+@keyframes profile-card-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.profile-avatar{width:72px;height:72px}.profile-header{gap:12px}}
+.nav-link,.nav-portfolio{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 15px;border:1px solid transparent;border-radius:4px;color:inherit;font-size:13px;font-weight:500;white-space:nowrap;transition:background .3s ease,border-color .3s ease,color .3s ease,box-shadow .3s ease}
+.nav-link.active,.nav-portfolio.active{background:#7800cf;border-color:#7800cf;color:#fff;box-shadow:0 5px 14px #7800cf26}
+.nav-link:hover,.nav-portfolio:hover{background:#f3eafa;border-color:#e4c9f5;color:#5600bd}
+.nav-link.active:hover,.nav-portfolio.active:hover{background:#5600bd;border-color:#5600bd;color:#fff}
+@media(max-width:760px){.nav-link,.nav-portfolio{align-self:flex-start}.nav-link.active,.nav-portfolio.active{min-width:150px;justify-content:flex-start}}
+@media(max-width:760px){.nav-portfolio{align-self:flex-start}}
